@@ -4,7 +4,6 @@ import Cookies from 'js-cookie';
 export default (url, method = 'get', options = {}) => {
     const axiosInstance = axios.create();
     const toast = useToast();
-    console.log(toast); //displays correctly
 
     axiosInstance.interceptors.response.use(
         function (response) {
@@ -16,21 +15,21 @@ export default (url, method = 'get', options = {}) => {
                     toast.add({
                         title: 'Whoops!',
                         description: "You're trying to do something that's off limits to you...",
-                        // color: 'error',
+                        color: 'error',
                     });
                     break;
                 case 404:
                     toast.add({
                         title: 'Whoops!',
                         description: "We can't find what you're looking for...",
-                        // color: 'error',
+                        color: 'error',
                     });
                     break;
                 case 406:
                     toast.add({
                         title: '🤖 Bleep bloop: Anti-bot test failed 🤖',
                         description: 'This looks like suspicious behaviour.',
-                        // color: 'error',
+                        color: 'error',
                     });
                     break;
                 case 409:
