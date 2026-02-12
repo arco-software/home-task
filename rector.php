@@ -1,9 +1,9 @@
 <?php
 
-use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\Config\RectorConfig;
 use RectorLaravel\Set\LaravelSetList;
 use RectorLaravel\Set\LaravelSetProvider;
+use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 
 return RectorConfig::configure()
     ->withSetProviders(LaravelSetProvider::class)
