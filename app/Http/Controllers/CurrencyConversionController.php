@@ -10,6 +10,14 @@ class CurrencyConversionController extends Controller
 {
     public function __invoke(CurrencyConversionRequest $request): array
     {
+        $rateLimiterKey = sprintf('address-validation:%s', $request->ip());
+
+        if (RateLimiter::tooManyAttempts($rateLimiterKey, 10)) {
+            report(new \Exception("Someone is spamming the endpoint: {$rateLimiterKey}"));
+            abort(429);
+        }
+
+        RateLimiter::increment($rateLimiterKey, 60);
 
         $currencyConverter = new CurrencyConverter(
             $request->float('amount'),

@@ -48,8 +48,8 @@ export default (url, method = 'get', options = {}) => {
                     throw error;
                 case 429:
                     toast.add({
-                        title: '🐌 Take it easy 🐢',
-                        description: "We're not keen on you doing that so often. Please wait a minute or two and then try again.",
+                        title: '🐯 Easy tiger!',
+                        description: 'Exchange rates only get updated every 10 minutes or so...',
                         color: 'error',
                     });
                     break;
