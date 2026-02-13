@@ -49,11 +49,11 @@ It'd be nice to have had more time to formalise our API's response rather than j
 
 It'd have been nice to spend a bit of time crafting a way for the front and the backend to draw the supported currencies from a single list, rather than separating them out into separate lists for the front and backend like I did.
 
-### Make better error message for Fixer API limitations
+### Make better error message for Fixer API limitations
 
 The free tier of the Fixer API only allows for conversion from euros (EUR). At the minute my error handling here is pretty basic - I should likely remove the option in the f/e to convert from anything other than euros, but the most likely production scenario is that I'd pay to consume the conversion API and then have access to other "base" currencies.
 
-### F/E type issues
+### F/E type issues
 
 I used vee-validate components to deal with form error handling. It's throwing type warnings. If I had more time I'd dig into these and figure out the issue.
 
