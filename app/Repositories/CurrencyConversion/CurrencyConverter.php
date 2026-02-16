@@ -33,11 +33,7 @@ final class CurrencyConverter
 
     private function resolveDriver(?CurrencyConversionDriver $driver = null)
     {
-        if ($driver) {
-            $this->driver = new $driver;
-        }
-
-        $this->driver = match (config('currencies.driver')) {
+        $this->driver = $driver ?? match (config('currencies.driver')) {
             'fixer' => new Fixer,
             default => new Fixer,
         };
